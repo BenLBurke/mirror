@@ -4,33 +4,16 @@ holidays
 https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics
 
 ```
+/* default/calendar module configuration */
 {
-  module: "MMM-CalendarExt3",
-  position: "top_center",
+  module: "calendar",
+  position: "top_left",
   config: {
-    locale: "en-US",
-    debug: true,
+    broadcastPastEvents: true, // <= IMPORTANT to see past events
     calendars: [
       {
-        name: "US Holidays",
-        url: "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics"
-      }
-    ],
-    views: [
-      {
-        name: "simple",
-        mode: "upcoming",
-        type: "column",
-        slotCount: 10
-      }
-    ],
-    scenes: [
-      {
-        name: "default",
-        views: ["simple"]
-      }
-    ],
-    defaultScene: "default"
-  }
-}
+        url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics",
+        name: "us_holiday", // <= RECOMMENDED to assign name
+        color: "red" // <= RECOMMENDED to assign color
+      },
 ```
