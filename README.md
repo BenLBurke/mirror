@@ -1,2 +1,2 @@
 # mirror
-https://calendar.google.com/calendar/u/0?cid=bXV0a2NhaTgzZ3VzbThlazdvNm5qMDBjcjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+https://calendar.google.com/calendar/ical/mutkcai83gusm8ek7o6nj00cr4%40group.calendar.google.com/public/basic.ics
