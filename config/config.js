@@ -71,7 +71,7 @@ let config = {
 		{
  			module: "MMM-CalendarExt3",
 			header: "Home Calendar",
-  			position: "upper_third",
+  			position: "top_bar",
   			config: {
 	    				locale: "en-US",
 					title: "Burke Home Calendar",
