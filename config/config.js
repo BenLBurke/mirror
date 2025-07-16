@@ -85,11 +85,13 @@ let config = {
   			}
 		},
 		{
-			module: "helloworld",
+  			module: "compliments",
 			position: "lower_third",
-                        config: {
-                         text: "You can do all things through Christ",
-                       },
+			config: {
+				updateInterval: 30000,
+			    remoteFile: "compliments.json", // Looks in ~/MagicMirror/config/
+			    fadeSpeed: 4000
+			}
 		},
 		{       module:"MMM-PregnancyTracker",
 			position: "bottom_left",
