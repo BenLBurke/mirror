@@ -1,0 +1,42 @@
+{
+  "morning": [
+    "Good morning!",
+    "You look rested!",
+    "Today is full of possibilities."
+  ],
+  "afternoon": [
+    "Keep going!",
+    "You're doing great!",
+    "How about a quick stretch?"
+  ],
+  "evening": [
+    "You made it through the day.",
+    "Time to relax.",
+    "You deserve some rest."
+  ],
+  "weather:clear": [
+    "What a beautiful day!",
+    "Don't forget your sunglasses!",
+    "Soak up that sun!"
+  ],
+  "weather:rain": [
+    "Stay dry out there!",
+    "Perfect weather for a warm drink.",
+    "Rainy days are good for reflection."
+  ],
+  "weather:snow": [
+    "It's a winter wonderland!",
+    "Hope you're bundled up!",
+    "Snowball fight, anyone?"
+  ],
+  "weather:cloudy": [
+    "The clouds can't hide your shine.",
+    "A calm, cloudy day.",
+    "Great weather for thinking deep thoughts."
+  ],
+  "weather:thunderstorm": [
+    "Hope you're safe and cozy!",
+    "Let the thunder roll — you've got this.",
+    "Maybe light a candle and chill?"
+  ]
+}
