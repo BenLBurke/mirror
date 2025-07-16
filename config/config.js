@@ -89,7 +89,7 @@ let config = {
 			position: "lower_third",
 			config: {
 				updateInterval: 30000,
-			    remoteFile: "/config/compliments.json", // Looks in ~/MagicMirror/config/
+			    remoteFile: "~MagicMirror/config/compliments.json", // Looks in ~/MagicMirror/config/
 			    fadeSpeed: 4000
 			}
 		},
