@@ -1,7 +1,14 @@
 {
-  "* * 16 7 *": [
-	  "Happy July 16!"
-  ],
+	"* * 10 1 *": ["Happy Birthday Jack!"],
+	"* * 29 1 *": ["Happy Birthday Dad!"],
+	"* * 4 3 *": ["Happy Birthday Cole!"],
+	"* * 8 5 *": ["Happy Birthday Mommy!"],
+	"* * 20 10 *": ["Happy Birthday Cora!"],
+	"* * 26 11 *": ["Happy Birthday Jane!"],
+	"* * 31 10 *": ["Boo!!"],
+	"* * 25 12 *": ["Merry Chirstmas\n-❤️ Santa"],
+	"* * 6 7 *": ["Happy Anniversary!"],
+	"* * 16 7 *": ["🦾🏆\nAll I do is win"],
   "morning": [
     "Good morning!",
     "You look rested!",
