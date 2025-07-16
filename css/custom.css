@@ -28,6 +28,11 @@
   --gap-modules: 30px;
 }
 
+body {
+  transform: scale(0.85);
+  transform-origin: top center;
+}
+
 .MMM-PregnancyTracker {
  transform: scale(0.7);
  overflow-wrap: break-word;
