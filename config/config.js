@@ -97,7 +97,7 @@ let config = {
 			position: "bottom_left",
 			config: {
 				conceptionDate:"2025-04-21",
-				showDevelopmentalMilestones: true
+				showDevelopmentalMilestones: false
 				}
 		},
 		{
@@ -113,7 +113,7 @@ let config = {
 		},
 		{
 			module: "weather",
-			position: "top_right",
+			hidden: true,
 			header: "Waxhaw Forecast",
                         config: {
 				weatherProvider: "openmeteo",
