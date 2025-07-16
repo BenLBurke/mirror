@@ -1,0 +1,78 @@
+/* Custom CSS Sample
+ *
+ * Change color and fonts here.
+ *
+ * Beware that properties cannot be unitless, so for example write '--gap-body: 0px;' instead of just '--gap-body: 0;'
+ */
+
+/* Uncomment and adjust accordingly if you want to import another font from the google-fonts-api: */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap'); */
+
+:root {
+  --color-text: #999;
+  --color-text-dimmed: #666;
+  --color-text-bright: #fff;
+  --color-background: black;
+
+  --font-primary: "Roboto Condensed";
+  --font-secondary: "Roboto";
+
+  --font-size: 20px;
+  --font-size-small: 0.75rem;
+
+  --gap-body-top: 60px;
+  --gap-body-right: 60px;
+  --gap-body-bottom: 60px;
+  --gap-body-left: 60px;
+
+  --gap-modules: 30px;
+}
+
+.MMM-PregnancyTracker {
+ transform: scale(0.7);
+ overflow-wrap: break-word;
+ word-wrap: break-word;
+ white-space: normal !important;
+ transform-origin: bottom left;
+ max-width: 250px;
+ padding: 10px;
+ margin-left: 10px;
+ margin-bottom: 10px;
+}
+
+.CX3 {
+ max-width: 73%;
+ margin: 0 auto;
+ font-size: 16px;
+}
+
+.CX3 .day {
+ flex: 1 1 14.28%;
+ min-width: 120px;
+}
+
+.CX3 .event {
+ padding: 6px 10px;
+ white-space: normal;
+ word-wrap: break-word;
+ font-size: 14px;
+ border-radius: 6px;
+}
+
+.CX3 .weekNumber {
+ display: none !important;
+}
+
+
+.CX3 .day .title {
+ font-size: 18px;
+ font-weight: 600;
+ padding-bottom: 4px;
+}
+
+.region.top_third .module.MMM-CalendarExt3
+.module-header {
+ display: none !important;
+ margin: 0 !important;
+ padding: 0 !important;
+}
