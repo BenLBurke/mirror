@@ -41,39 +41,67 @@
  margin-bottom: 10px;
 }
 
+/* Main container */
 .CX3 {
- max-width: 100%;
- margin: 0 auto;
- font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
+/* Day boxes */
 .CX3 .day {
- flex: 1 1 14.28%;
- min-width: 120px;
+  flex: 1 1 14.28%;
+  min-width: 130px;
+  max-width: 14.28%;
+  box-sizing: border-box;
+  padding: 4px;
 }
 
+/* Event blocks */
 .CX3 .event {
- padding: 6px 10px;
- white-space: normal;
- word-wrap: break-word;
- font-size: 18px;
- border-radius: 6px;
+  padding: 6px 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 4px;
 }
 
-.CX3 .weekNumber {
- display: none !important;
+/* Ensure both time and title show */
+.CX3 .event .time {
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 2px;
 }
 
+.CX3 .event .title {
+  display: block;
+  font-size: 14px;
+  line-height: 1.2em;
+}
 
+/* Day labels */
 .CX3 .day .title {
- font-size: 18px;
- font-weight: 600;
- padding-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 4px;
 }
 
-.region.top_third .module.MMM-CalendarExt3
-.module-header {
- display: none !important;
- margin: 0 !important;
- padding: 0 !important;
+/* Hide week number */
+.CX3 .weekNumber {
+  display: none !important;
 }
+
+/* Remove module header if needed */
+.region.top_third .module.MMM-CalendarExt3 .module-header {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
