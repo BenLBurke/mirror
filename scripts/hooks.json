@@ -1,0 +1,7 @@
+[
+	{
+		"id": "update-mirror",
+		"execute-command": "/home/pi/MagicMirror/scripts/update.sh",
+		"command-working-directory": "/home/pi/MagicMirror"
+	}
+]
