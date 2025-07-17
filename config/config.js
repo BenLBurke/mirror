@@ -86,7 +86,7 @@ let config = {
 		},
 		{
   			module: "compliments",
-			position: "middle_center",
+			position: "upper_third",
 			config: {
 				updateInterval: 30000,
 			    remoteFile: "https://raw.githubusercontent.com/BenLBurke/mirror/refs/heads/master/config/compliments.json", // Looks in ~/MagicMirror/config/
