@@ -73,9 +73,10 @@ let config = {
 			header: "Home Calendar",
   			position: "upper_third",
   			config: {
-	    				locale: "en-US",
+	    			locale: "en-US",
 					title: "Burke Home Calendar",
 					mode: "week",
+					useMarquee: true,
 					instanceId: "basicCalendar",
 					maxEventLines: 5,
 					firstDayOfWeek: 0,
