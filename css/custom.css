@@ -45,55 +45,70 @@
   text-align: center;
 }
 
-/* ----- CALENDAR VIEW CLEANUP ----- */
 .CX3 {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  max-width: 100%;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   box-sizing: border-box;
   font-size: 16px;
+  padding: 10px 0;
+  gap: 0px;
+  margin: 0 auto;
 }
 
+/* Each "day" block */
 .CX3 .day {
+  width: 14.2857%;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,0.1); /* visible boxes */
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 120px;
-  padding: 6px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-  box-sizing: border-box;
   overflow: hidden;
 }
 
+/* Day header (e.g. "Mon 18") */
 .CX3 .day .title {
   font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 4px;
+  color: var(--color-text-bright);
 }
 
+/* Each event block */
 .CX3 .event {
-  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
-  padding: 4px;
-  margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.2;
-  word-wrap: break-word;
+  margin: 2px 0;
+  overflow-wrap: break-word;
+  flex-shrink: 0;
 }
 
+/* Time part of event */
 .CX3 .event .time {
   font-weight: bold;
   font-size: 11px;
   margin-bottom: 2px;
 }
 
+/* Title part of event */
 .CX3 .event .title {
   font-size: 12px;
   line-height: 1.2em;
+}
+
+/* Remove calendar week numbers */
+.CX3 .weekNumber,
+.CX3 .week,
+.CX3 .cw {
+  display: none !important;
 }
 
 .CX3 .weekNumber,
