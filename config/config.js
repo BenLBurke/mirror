@@ -140,6 +140,20 @@ let config = {
 				}
 			}
 		},
+		{	
+			module: "MMM-DisneyWaitTimes",
+			header: "Hollywood Studios",
+			position: "bottom_right",
+			config: {
+				park: {
+					name: "Hollywood Studios - Walt Disney World",
+					rides: [
+						"Mickey & Minnie's Runaway Railway",
+						"Star Wars: Rise of the Resistance",
+					]
+				}
+			}
+		},
 		{
 			module: "MMM-DisneyWaitTimes",
 			header: "Animal Kingdom",
@@ -152,20 +166,6 @@ let config = {
 						"Kilimanjaro Safaris",
 						"Avatar Flight of Passage",
 						"Expedition Everest - Legend of the Forbidden Mountain",
-					]
-				}
-			}
-		},
-		{	
-			module: "MMM-DisneyWaitTimes",
-			header: "Hollywood Studios",
-			position: "bottom_right",
-			config: {
-				park: {
-					name: "Hollywood Studios - Walt Disney World",
-					rides: [
-						"Mickey & Minnie's Runaway Railway",
-						"Star Wars: Rise of the Resistance",
 					]
 				}
 			}
