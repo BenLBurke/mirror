@@ -105,26 +105,37 @@
 }
 
 .CX3 .event {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
-  padding: 4px 5px;
-  margin: 2px 0;
   font-size: 11px;
+  padding: 3px 4px;
+  margin: 2px 0;
   line-height: 1.2;
-  overflow-wrap: break-word;
 }
 
 .CX3 .event .time {
-  font-weight: bold;
   font-size: 10px;
-  margin-bottom: 2px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1px;
 }
 
 .CX3 .event .title {
   font-size: 11px;
   line-height: 1.2em;
+  display: block;
+  overflow-wrap: break-word;
 }
 
+.CX3 .week {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.CX3 .day {
+  flex: 1;
+  margin: 2px;
+  min-height: 130px;
+  box-sizing: border-box;
+}
 /* Hide extra headers if showing */
 .CX3 .weekNumber,
 .CX3 .cw {
