@@ -91,14 +91,14 @@ let config = {
 			config: {
 				updateInterval: 30000,
 			    remoteFile: "https://raw.githubusercontent.com/BenLBurke/mirror/refs/heads/master/config/compliments.json", // Looks in ~/MagicMirror/config/
-			    fadeSpeed: 4000
+			    fadeSpeed: 1000
 			}
 		},
 		{       module:"MMM-PregnancyTracker",
 			position: "bottom_left",
 			config: {
 				conceptionDate:"2025-04-21",
-				showDevelopmentalMilestones: false
+				showDevelopmentalMilestones: true
 				}
 		},
 		{
