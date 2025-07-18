@@ -81,3 +81,13 @@
 .CX3 .weekNumber {
   display: none !important;
 }
+
+.CX3 .event {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+  work-break: break-word;
+}
+
+.CX3 .event span {
+  display: inline;
+}
