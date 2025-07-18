@@ -51,6 +51,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: 90vw; /* Prevents it from going edge-to-edge */
+  transform: scale(0.75);
 }
 
 /* ----- DISNEY WORLD MODULES (bottom_right) ----- */
@@ -76,7 +77,7 @@
   line-height: 1.2;
 }
 
-CX3 .cw,
+.CX3 .cw,
 .CX3 .weekNumber {
   display: none !important;
 }
