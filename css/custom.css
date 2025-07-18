@@ -140,3 +140,19 @@
   font-size: 12px;
   line-height: 1.2em;
 }
+
+/* Hide empty event blocks */
+.CX3 .event:empty {
+  display: none !important;
+}
+
+/* Hide empty rows or ghost lines */
+.CX3 .day > *:empty {
+  display: none !important;
+}
+
+/* Optional: tighten up empty days if they still look off */
+.CX3 .day:not(:has(.event)) {
+  background-color: rgba(255, 255, 255, 0.01); /* even lighter */
+  min-height: 100px;
+}
