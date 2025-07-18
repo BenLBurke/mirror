@@ -36,9 +36,9 @@
 
 /* ----- COMPLIMENTS (bottom_center) ----- */
 .region.bottom_center .compliments {
-  font-size: 10px !important;
+  font-size: 7px !important;
   line-height: 1.1em;
-  transform: scale(0.6);
+  transform: scale(0.5);
   transform-origin: top center;
   max-width: 80%;
   margin: 0 auto;
@@ -46,50 +46,61 @@
 }
 
 /* ----- CALENDAR VIEW CLEANUP ----- */
-..CX3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.CX3 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .CX3 .day {
-  flex: 1 1 14.2857%;
-  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 120px;
   padding: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.CX3 .day .title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-align: center;
 }
 
 .CX3 .event {
-  padding: 6px 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 4px;
   font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3em;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 5px;
-  margin: 3px 0;
-  min-height: 45px;
-  overflow-wrap: break-word;
-  white-space: normal;
+  line-height: 1.2;
+  word-wrap: break-word;
 }
 
 .CX3 .event .time {
-  display: block;
   font-weight: bold;
   font-size: 11px;
   margin-bottom: 2px;
 }
 
 .CX3 .event .title {
-  display: block;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.2em;
 }
 
+.CX3 .weekNumber,
+.CX3 .week,
+.CX3 .cw {
+  display: none !important;
+}
 /* ----- DISNEY WORLD MODULES (bottom_right) ----- */
 .region.bottom_right {
   transform: scale(0.75);
