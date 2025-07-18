@@ -30,21 +30,21 @@
   margin-left: 10px;
   margin-bottom: 10px;
   overflow-wrap: break-word;
-  word-wrap: break-word;
   white-space: normal !important;
 }
 
 /* ----- COMPLIMENTS (bottom_center) ----- */
 .region.bottom_center .compliments {
-  font-size: 7px !important;
-  line-height: 1.1em;
-  transform: scale(0.5);
-  transform-origin: top center;
-  max-width: 80%;
+  font-size: 10px !important;
+  line-height: 1.2em;
+  transform: scale(0.6);
+  transform-origin: bottom center;
+  max-width: 90%;
   margin: 0 auto;
   text-align: center;
 }
 
+/* ----- CALENDAR FIXES ----- */
 .CX3 {
   display: flex;
   flex-wrap: wrap;
@@ -53,8 +53,8 @@
   box-sizing: border-box;
   font-size: 16px;
   padding: 10px 0;
-  gap: 0px;
   margin: 0 auto;
+  gap: 0;
 }
 
 /* Each "day" block */
@@ -62,24 +62,24 @@
   width: 14.2857%;
   box-sizing: border-box;
   padding: 4px;
-  border: 1px solid rgba(255,255,255,0.1); /* visible boxes */
-  min-height: 140px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
 }
 
-/* Day header (e.g. "Mon 18") */
+/* Day header */
 .CX3 .day .title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 4px;
   color: var(--color-text-bright);
 }
 
-/* Each event block */
+/* Event block */
 .CX3 .event {
   padding: 4px 6px;
   background: rgba(255, 255, 255, 0.08);
@@ -91,17 +91,18 @@
   flex-shrink: 0;
 }
 
-/* Time part of event */
+/* Event time */
 .CX3 .event .time {
   font-weight: bold;
   font-size: 11px;
   margin-bottom: 2px;
 }
 
-/* Title part of event */
+/* Event title */
 .CX3 .event .title {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.2em;
+  word-break: break-word;
 }
 
 /* Remove calendar week numbers */
@@ -111,11 +112,6 @@
   display: none !important;
 }
 
-.CX3 .weekNumber,
-.CX3 .week,
-.CX3 .cw {
-  display: none !important;
-}
 /* ----- DISNEY WORLD MODULES (bottom_right) ----- */
 .region.bottom_right {
   transform: scale(0.75);
@@ -129,12 +125,10 @@
   line-height: 1.2;
 }
 
-/* Optional: tighter margins */
 .region.bottom_right .module-content {
   padding: 4px;
 }
 
-/* If using countdown modules */
 .region.bottom_right .MMM-WDW-Countdown,
 .region.bottom_right .MMM-DisneyWaitTimes {
   font-size: 12px !important;
