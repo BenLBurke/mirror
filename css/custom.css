@@ -82,25 +82,37 @@
   display: none !important;
 }
 
-.cellContent {
+/* === CALENDAR EVENTS STYLE OVERRIDE === */
+.calendar .event {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  white-space: normal;
+  justify-content: center;
+
+  font-size: 1rem; /* Adjust as needed */
+  line-height: 1.2;
+  padding: 0.25em 0;
+  white-space: normal !important;
+  word-break: break-word;
+  overflow: visible;
+  text-align: left;
 }
 
-.cellContent .event {
-  display: block;
-  width: 100%;
-  white-space: normal !important;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  overflow: visible;
-  animation: none !important;
+/* Make sure time is on top */
+.calendar .event .time {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.1em;
 }
+
+/* Make sure title is below time and fully wraps */
+.calendar .event .title {
+  font-size: 1rem;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
 
 
 .CX3 .event span {
