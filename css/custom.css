@@ -140,6 +140,15 @@
   font-size: 12px;
   line-height: 1.2em;
 }
+/* Hide ghost calendar events */
+.CX3 .event {
+  display: none;
+}
+
+.CX3 .event:not(:empty) {
+  display: block;
+}
+
 
 /* Hide empty event blocks */
 .CX3 .event:empty {
