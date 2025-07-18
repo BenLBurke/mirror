@@ -68,59 +68,65 @@
   line-height: 1.2;
 }
 
-/* ----- CALENDAR VIEW STYLING ----- */
-.CX3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  align-items: start;
+/* ----- CALENDAR EXT3 (MMM-CalendarExt3) ----- */
+
+.MMM-CalendarExt3 {
   width: 100%;
-  font-size: 14px;
-  color: white;
-  margin: 0 auto;
+  font-size: 13px;
+  color: #fff;
+}
+
+.CX3 .week {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .CX3 .day {
-  width: calc(100% / 7); /* 7-day week */
+  flex: 1 1 14.2857%;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 140px;
   box-sizing: border-box;
-  min-height: 160px;
-  padding: 5px;
+  padding: 4px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.03);
+  margin: 1px;
 }
 
-.CX3 .day .title {
+.CX3 .day .header {
   font-weight: bold;
   font-size: 13px;
-  margin-bottom: 5px;
   text-align: center;
+  margin-bottom: 5px;
   color: #fff;
 }
 
 .CX3 .event {
-  background: rgba(255, 255, 255, 0.07);
-  padding: 4px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
+  padding: 4px 5px;
   margin: 2px 0;
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1.2;
   overflow-wrap: break-word;
 }
 
 .CX3 .event .time {
   font-weight: bold;
-  font-size: 11px;
+  font-size: 10px;
+  margin-bottom: 2px;
 }
 
 .CX3 .event .title {
-  font-size: 12px;
-  line-height: 1.3;
+  font-size: 11px;
+  line-height: 1.2em;
 }
 
+/* Hide extra headers if showing */
 .CX3 .weekNumber,
-.CX3 .week,
 .CX3 .cw {
   display: none !important;
 }
