@@ -30,7 +30,6 @@
   margin-left: 10px;
   margin-bottom: 10px;
   overflow-wrap: break-word;
-  word-wrap: break-word;
   white-space: normal !important;
 }
 
@@ -68,54 +67,52 @@
   line-height: 1.2;
 }
 
-/* Global calendar container */
+/* ----- CALENDAR EXT3 ----- */
 .MMM-CalendarExt3 {
   padding: 10px;
   color: var(--color-text-bright);
   font-family: var(--font-primary);
+  transform: scale(0.9);
+  transform-origin: top center;
 }
 
-/* Weekly layout */
+/* Layout grid */
 .CX3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: auto;
   gap: 4px;
 }
 
-/* Each day cell */
+/* Day cell styling */
 .CX3 .day {
-  width: 14.2857%; /* 100% / 7 days */
-  box-sizing: border-box;
-  padding: 6px;
-  border: 1px solid rgba(255,255,255,0.15);
-  min-height: 120px;
+  min-height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgba(255,255,255,0.03);
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-/* Remove unwanted week containers */
+/* Hide calendar week (CW) row and week numbers */
 .CX3 .week,
 .CX3 .cw,
 .CX3 .weekNumber {
   display: none !important;
 }
 
-/* Day title (e.g. "Mon 18") */
+/* Day title (e.g. Mon 15) */
 .CX3 .day .title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 6px;
   color: var(--color-text-bright);
 }
 
-/* Event block inside day */
+/* Event box inside day */
 .CX3 .event {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
@@ -127,21 +124,15 @@
   flex-shrink: 0;
 }
 
-/* Time inside event */
+/* Event time */
 .CX3 .event .time {
   font-weight: bold;
   font-size: 11px;
   margin-bottom: 2px;
 }
 
-/* Title inside event */
+/* Event title */
 .CX3 .event .title {
   font-size: 12px;
   line-height: 1.2em;
-}
-
-/* Optional: shrink calendar for screen space */
-.MMM-CalendarExt3 {
-  transform: scale(0.9);
-  transform-origin: top center;
 }
