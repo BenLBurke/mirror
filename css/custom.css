@@ -45,25 +45,36 @@
 }
 
 /* Force the compliments module to stretch and not wrap */
-.compliments {
+/* Region containing the compliments */
+.region.upper_third {
   width: 100vw !important;
   max-width: 100vw !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
   text-align: center;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Compliments module container */
+.compliments {
+  width: 100% !important;
+  max-width: 100% !important;
   font-size: 6px !important;
-  transform: scale(0.5) !important;
-  transform-origin: top center !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-align: center;
+  transform: none !important; /* Remove scale transform */
   padding: 0 !important;
   margin: 0 auto !important;
 }
 
-/* Target the text itself */
+/* Target the compliment text directly */
 .compliments span {
   display: inline-block !important;
-  white-space: nowrap !important;
   width: 100% !important;
   text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 /* ----- DISNEY WORLD MODULES (bottom_right) ----- */
