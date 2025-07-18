@@ -30,16 +30,17 @@
   margin-left: 10px;
   margin-bottom: 10px;
   overflow-wrap: break-word;
+  word-wrap: break-word;
   white-space: normal !important;
 }
 
-/* ----- COMPLIMENTS (bottom_center) ----- */
-.region.upper_third .compliments {
-  font-size: 7px !important;
-  line-height: 1.1em;
-  transform: scale(0.5);
-  transform-origin: center;
-  max-width: 80%;
+/* ----- COMPLIMENTS (upper_third) ----- */
+.compliments {
+  font-size: 6px !important;
+  line-height: 1.1em !important;
+  transform: scale(0.5) !important;
+  transform-origin: top center !important;
+  max-width: 80% !important;
   margin: 0 auto;
   text-align: center;
 }
@@ -67,7 +68,7 @@
   line-height: 1.2;
 }
 
-/* ----- CALENDAR EXT3 ----- */
+/* ----- CALENDAREXT3 CUSTOM STYLING ----- */
 .MMM-CalendarExt3 {
   padding: 10px;
   color: var(--color-text-bright);
@@ -76,43 +77,46 @@
   transform-origin: top center;
 }
 
-/* Layout grid */
+/* Weekly layout */
 .CX3 {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0 auto;
   gap: 4px;
 }
 
-/* Day cell styling */
+/* Each day cell */
 .CX3 .day {
-  min-height: 110px;
+  width: 14.2857%;
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 4px;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
-/* Hide calendar week (CW) row and week numbers */
-.CX3 .week,
+/* Remove unwanted week number containers */
 .CX3 .cw,
 .CX3 .weekNumber {
   display: none !important;
 }
 
-/* Day title (e.g. Mon 15) */
+/* Day title (e.g. "Mon 18") */
 .CX3 .day .title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 6px;
   color: var(--color-text-bright);
 }
 
-/* Event box inside day */
+/* Event block inside day */
 .CX3 .event {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
@@ -124,14 +128,14 @@
   flex-shrink: 0;
 }
 
-/* Event time */
+/* Time inside event */
 .CX3 .event .time {
   font-weight: bold;
   font-size: 11px;
   margin-bottom: 2px;
 }
 
-/* Event title */
+/* Title inside event */
 .CX3 .event .title {
   font-size: 12px;
   line-height: 1.2em;
