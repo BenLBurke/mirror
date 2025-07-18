@@ -181,7 +181,7 @@ let config = {
 					},
 					{
 						title: "Disney Parks Blog",
-						url: "https://feeder.co/discover/08cdc5f9b4/disneyparks-disney-go-com-blog"
+						url: "https://rss.app/feeds/RPrZ6OHnFw2KviW9.xml"
 					}
 				],
 				showSourceTitle: true,
