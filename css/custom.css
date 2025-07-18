@@ -21,7 +21,7 @@
 
 /* ----- PREGNANCY TRACKER (bottom_left) ----- */
 .MMM-PregnancyTracker {
-  transform: scale(0.75);
+  transform: scale(0.8);
   transform-origin: bottom left;
   font-size: 13px !important;
   line-height: 1.2;
