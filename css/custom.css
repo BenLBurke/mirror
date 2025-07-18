@@ -1,4 +1,51 @@
-/* General calendar container */
+/* ----- GLOBAL THEME COLORS & BASE FONT ----- */
+:root {
+  --color-text: #999;
+  --color-text-dimmed: #666;
+  --color-text-bright: #fff;
+  --color-background: black;
+
+  --font-primary: "Roboto Condensed";
+  --font-secondary: "Roboto";
+
+  --font-size: 20px;
+  --font-size-small: 0.75rem;
+
+  --gap-body-top: 60px;
+  --gap-body-right: 60px;
+  --gap-body-bottom: 60px;
+  --gap-body-left: 60px;
+
+  --gap-modules: 30px;
+}
+
+/* ----- PREGNANCY TRACKER (bottom_left) ----- */
+.MMM-PregnancyTracker {
+  transform: scale(0.75);
+  transform-origin: bottom left;
+  font-size: 13px !important;
+  line-height: 1.2;
+  max-width: 250px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal !important;
+}
+
+/* ----- COMPLIMENTS (bottom_center) ----- */
+.region.bottom_center .compliments {
+  font-size: 12px !important;
+  line-height: 1.1em;
+  transform: scale(0.8);
+  transform-origin: top center;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ----- CALENDAR VIEW CLEANUP ----- */
 .CX3 {
   display: flex;
   flex-wrap: wrap;
@@ -6,82 +53,75 @@
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-/* Each day box */
 .CX3 .day {
   flex: 1 1 14.2857%;
-  min-width: 0;
-  padding: 6px;
+  min-width: 130px;
+  padding: 4px;
   box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Day header (e.g., Sunday) */
-.CX3 .day .title {
-  font-size: 13px;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  padding-bottom: 4px;
-  white-space: nowrap;
-}
-
-/* Event box */
 .CX3 .event {
-  font-size: 12px;
-  line-height: 1.3em;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
-  padding: 4px 6px;
-  margin: 3px 0;
-  overflow: hidden;
+  padding: 6px 8px;
+  font-size: 13px;
   display: flex;
   flex-direction: column;
+  line-height: 1.2em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  margin: 2px 0;
+  min-height: 40px;
 }
 
-/* Time styling */
 .CX3 .event .time {
+  display: block;
   font-weight: bold;
-  font-size: 11px;
-  margin-bottom: 2px;
-  white-space: nowrap;
-}
-
-/* Event title styling */
-.CX3 .event .title {
   font-size: 12px;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  margin-bottom: 2px;
 }
 
-/* Hide week numbers (CW1 etc.) */
+.CX3 .event .title {
+  display: block;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+.CX3 .day .title {
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 4px;
+  text-align: center;
+}
+
 .CX3 .weekNumber,
 .CX3 .week,
-.CX3 .cw,
-.CX3 .title:has(span:contains('CW')),
-.CX3 .day .title:has(span:contains('CW')) {
+.CX3 .cw {
   display: none !important;
 }
 
-/* Compliments - smaller font and padding */
-.region.bottom_center .compliments {
+/* ----- DISNEY WORLD MODULES (bottom_right) ----- */
+.region.bottom_right {
+  transform: scale(0.75);
+  transform-origin: bottom right;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.region.bottom_right .module {
+  font-size: 13px !important;
+  line-height: 1.2;
+}
+
+/* Optional: tighter margins */
+.region.bottom_right .module-content {
+  padding: 4px;
+}
+
+/* If using countdown modules */
+.region.bottom_right .MMM-WDW-Countdown,
+.region.bottom_right .MMM-DisneyWaitTimes {
   font-size: 12px !important;
   line-height: 1.2;
-  transform: scale(0.8);
-  transform-origin: center;
-  max-width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Remove module header if unwanted */
-.region.top_third .module.MMM-CalendarExt3 .module-header {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
