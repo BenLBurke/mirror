@@ -35,7 +35,7 @@
 }
 
 /* ----- COMPLIMENTS (bottom_center) ----- */
-.region.bottom_center .compliments {
+.region.upper_third .compliments {
   font-size: 7px !important;
   line-height: 1.1em;
   transform: scale(0.5);
