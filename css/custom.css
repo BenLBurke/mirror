@@ -54,24 +54,27 @@
 
 /* One box per day, evenly spaced */
 .CX3 .day {
-  width: calc(100% / 7);
-  box-sizing: border-box;
+  flex: 1 1 14.2857%;
+  min-width: 130px;
   padding: 4px;
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
 }
 
 /* Event block inside each day */
 .CX3 .event {
-  background-color: rgba(255, 255, 255, 0.1);
   padding: 6px 8px;
-  font-size: 14px;
-  border-radius: 6px;
-  margin-bottom: 4px;
-  overflow-wrap: break-word;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
   word-wrap: break-word;
+  overflow-wrap: break-word;
   word-break: break-word;
-  white-space: nowrap;
+  line-height: 1.2em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  margin: 2px 0;
+  min-height: 40px;
 }
 
 /* Event time + title */
@@ -101,9 +104,21 @@
   display: none !important;
 }
 
-.region.lower.third .compliments {
-  font-size: 18px;   /* Default is around 26px — try smaller sizes like 16, 14, etc. */
-  line-height: 1.2em;
+.CX3 .week {
+  display: none !important;
+}
+
+.CX3 .cw {
+  display: none !important;
+}
+
+.region.bottom_center .compliments {
+  font-size: 12px !important;
+  line-height: 1.1em;
+  transform: scale(0.8);
+  transform-origin: top center;
+  max-width: 80%;  /* Prevent overflow */
+  margin: 0 auto;
   text-align: center;
 }
 
