@@ -151,7 +151,7 @@ let config = {
 					rides: [
 						"Kilimanjaro Safaris",
 						"Avatar Flight of Passage",
-						"Expedition Everest - Legend of the Forbidden Mountain"
+						"Expedition Everest - Legend of the Forbidden Mountain",
 					]
 				}
 			}
@@ -165,7 +165,7 @@ let config = {
 					name: "Hollywood Studios - Walt Disney World",
 					rides: [
 						"Mickey & Minnie's Runaway Railway",
-						"Star Wars: Rise of the Resistance"
+						"Star Wars: Rise of the Resistance",
 					]
 				}
 			}
