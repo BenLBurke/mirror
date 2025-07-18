@@ -133,7 +133,7 @@ let config = {
 					rides: [
 						"Haunted Mansion",
 						"Walt Disney's Carousel of Progress",
-						"Monster's Inc. Laugh Floor",
+						"Monsters Inc. Laugh Floor",
 						"Jungle Cruise",
 						"TRON Lightcycle / Run"
 						]
