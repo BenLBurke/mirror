@@ -76,7 +76,7 @@ let config = {
 	    			locale: "en-US",
 					title: "Burke Home Calendar",
 					mode: "week",
-					useMarquee: true,
+					useMarquee: false,
 					instanceId: "basicCalendar",
 					maxEventLines: 5,
 					firstDayOfWeek: 0,
