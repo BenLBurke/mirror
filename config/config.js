@@ -131,11 +131,11 @@ let config = {
 				park: {
 					name: "Magic Kingdom - Walt Disney World",
 					rides: [
-						"Haunted Mansion",
-						"Walt Disney's Carousel of Progress",
-						"Monsters Inc. Laugh Floor",
 						"Jungle Cruise",
-						"TRON Lightcycle / Run"
+						"Haunted Mansion",
+						"TRON Lightcycle / Run",
+						"Monsters Inc. Laugh Floor",
+						"Walt Disney's Carousel of Progress",
 						]
 				}
 			}
@@ -149,9 +149,9 @@ let config = {
 		
 					name: "Animal Kingdom - Walt Disney World",
 					rides: [
-						"Expedition Everest - Legend of the Forbidden Mountain",
 						"Kilimanjaro Safaris",
-						"Avatar Flight of Passage"
+						"Avatar Flight of Passage",
+						"Expedition Everest - Legend of the Forbidden Mountain"
 					]
 				}
 			}
@@ -164,8 +164,8 @@ let config = {
 				park: {
 					name: "Hollywood Studios - Walt Disney World",
 					rides: [
-						"Star Wars: Rise of the Resistance",
-						"Mickey & Minnie's Runaway Railway"
+						"Mickey & Minnie's Runaway Railway",
+						"Star Wars: Rise of the Resistance"
 					]
 				}
 			}
