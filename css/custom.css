@@ -53,12 +53,6 @@
   width: 90vw; /* Prevents it from going edge-to-edge */
 }
 
-/* Compliment text itself */
-.compliments span {
-  display: inline-block;
-  width: 100%;
-}
-
 /* ----- DISNEY WORLD MODULES (bottom_right) ----- */
 .region.bottom_right {
   transform: scale(0.75);
@@ -82,100 +76,7 @@
   line-height: 1.2;
 }
 
-/* ----- CALENDAREXT3 CUSTOM STYLING ----- */
-.MMM-CalendarExt3 {
-  padding: 10px;
-  color: var(--color-text-bright);
-  font-family: var(--font-primary);
-  transform: scale(0.9);
-  transform-origin: top center;
-}
-
-/* Weekly layout */
-.CX3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin: 0 auto;
-  gap: 4px;
-}
-
-/* Each day cell */
-.CX3 .day {
-  width: 14.2857%;
-  box-sizing: border-box;
-  padding: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: rgba(255, 255, 255, 0.03);
-}
-
-/* Remove unwanted week number containers */
-.CX3 .cw,
+CX3 .cw,
 .CX3 .weekNumber {
   display: none !important;
-}
-
-/* Day title (e.g. "Mon 18") */
-.CX3 .day .title {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 6px;
-  color: var(--color-text-bright);
-}
-
-/* Event block inside day */
-.CX3 .event {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
-  font-size: 12px;
-  line-height: 1.2;
-  padding: 4px 6px;
-  margin: 2px 0;
-  overflow-wrap: break-word;
-  flex-shrink: 0;
-}
-
-/* Time inside event */
-.CX3 .event .time {
-  font-weight: bold;
-  font-size: 11px;
-  margin-bottom: 2px;
-}
-
-/* Title inside event */
-.CX3 .event .title {
-  font-size: 12px;
-  line-height: 1.2em;
-}
-/* Hide ghost calendar events */
-.CX3 .event {
-  display: none;
-}
-
-.CX3 .event:not(:empty) {
-  display: block;
-}
-
-
-/* Hide empty event blocks */
-.CX3 .event:empty {
-  display: none !important;
-}
-
-/* Hide empty rows or ghost lines */
-.CX3 .day > *:empty {
-  display: none !important;
-}
-
-/* Optional: tighten up empty days if they still look off */
-.CX3 .day:not(:has(.event)) {
-  background-color: rgba(255, 255, 255, 0.01); /* even lighter */
-  min-height: 100px;
 }
