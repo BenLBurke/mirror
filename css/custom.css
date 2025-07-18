@@ -71,7 +71,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
-  white-space: normal;
+  white-space: nowrap;
 }
 
 /* Event time + title */
@@ -101,4 +101,9 @@
   display: none !important;
 }
 
+.region.lower.third .compliments {
+  font-size: 18px;   /* Default is around 26px — try smaller sizes like 16, 14, etc. */
+  line-height: 1.2em;
+  text-align: center;
+}
 
