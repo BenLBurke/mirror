@@ -82,28 +82,26 @@
   display: none !important;
 }
 
-.calendar .event {
-  white-space: normal !important;
-  overflow: visible !important;
-  display: flex !important;
+.cellContent {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.cellContent .event {
+  display: block;
+  width: 100%;
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
   animation: none !important;
 }
 
-.calendar .event .time {
-  display: block;
-  white-space: nowrap;
-  margin-bottom: 2px;
-}
-
-.calendar .event .title {
-  display: block;
-  white-space: normal !important;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  width: 100%;
-}
 
 .CX3 .event span {
   display: inline;
