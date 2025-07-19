@@ -180,8 +180,8 @@ let config = {
 						url: "https://newsroom.churchofjesuschrist.org/blog/rss"
 					},
 					{
-						title: "Disney Parks Blog",
-						url: "https://rss.app/feeds/RPrZ6OHnFw2KviW9.xml"
+						title: "Disney Food Blog",
+						url: "https://feeds.feedburner.com/disneyfoodblog/feed"
 					}
 				],
 				showSourceTitle: true,
