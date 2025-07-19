@@ -34,6 +34,16 @@
   white-space: normal !important;
 }
 
+.MMM-PregnancyTracker .pregnancy-info {
+  flex: 1; /* Allow it to grow */
+  width: 100%; /* Optional: reinforce full width if stacking */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
 /* Ensure the compliments region is wide and centered */
 .region.upper_third {
   width: 100vw;
