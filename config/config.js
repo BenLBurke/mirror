@@ -52,7 +52,7 @@ let config = {
 		/* default/calendar module configuration */
 		{
   			module: "calendar",
-  			hidden: true,
+  			// hidden: true,
   			config: {
     					broadcastPastEvents: true, // <= IMPORTANT to see past events
     					calendars: [
@@ -68,33 +68,33 @@ let config = {
 					]
 			}
       		},
-		{
-		  module: "MMM-CalendarExt3",
-		  header: "Home Calendar",
-		  position: "upper_third",
-		  config: {
-		    locale: "en-US",
-		    title: "Burke Home Calendar",
-		    instanceId: "basicCalendar",
-		    useMarquee: false,
-		    calendarSet: ["burke_calendar", "us_holiday"],
-		    views: [
-		      {
-		        name: "homeView",
-		        mode: "week",
-		        maxEventLines: 5,
-		        firstDayOfWeek: 0,
-		        weeksInView: 2,
-			  	slotHeight: 60,
-		        weekIndex: 0,
-		        customLayout: {
-		          event: "{TIME} <br><span style='font-size: 0.9em;'>{TITLE}</span>"
-		        }
-		      }
-		    ],
-		    defaultView: "homeView"
-		  }
-		},
+		// {
+		//   module: "MMM-CalendarExt3",
+		//   header: "Home Calendar",
+		//   position: "upper_third",
+		//   config: {
+		//     locale: "en-US",
+		//     title: "Burke Home Calendar",
+		//     instanceId: "basicCalendar",
+		//     useMarquee: false,
+		//     calendarSet: ["burke_calendar", "us_holiday"],
+		//     views: [
+		//       {
+		//         name: "homeView",
+		//         mode: "week",
+		//         maxEventLines: 5,
+		//         firstDayOfWeek: 0,
+		//         weeksInView: 2,
+		// 	  	slotHeight: 60,
+		//         weekIndex: 0,
+		//         customLayout: {
+		//           event: "{TIME} <br><span style='font-size: 0.9em;'>{TITLE}</span>"
+		//         }
+		//       }
+		//     ],
+		//     defaultView: "homeView"
+		//   }
+		// },
 		{
   			module: "compliments",
 			position: "middle_center",
@@ -124,7 +124,7 @@ let config = {
 		},
 		{
 			module: "weather",
-			hidden: true,
+			// hidden: true,
 			header: "Waxhaw Forecast",
                         config: {
 				weatherProvider: "openmeteo",
