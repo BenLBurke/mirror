@@ -82,10 +82,7 @@
   display: none !important;
 }
 
-/* === CALENDAR EVENTS STYLE OVERRIDE === */
-
-/* === CALENDAR EVENTS STYLE FOR MMM-CalendarExt3 === */
-
+/* Container: Stack time and title vertically */
 .CX3 .event {
   display: flex;
   flex-direction: column;
@@ -95,24 +92,25 @@
   line-height: 1.2;
   white-space: normal !important;
   word-break: break-word;
-  overflow: visible !important;
+  overflow: visible;
   text-align: left;
   max-width: 100%;
 }
 
-/* Time: stays on one line, does not wrap */
-.CX3 .event .eventTime,
-.CX3 .event .eventTimeParts {
+/* Force time to one line with no wrap */
+.CX3 .eventTime,
+.CX3 .eventTimeParts {
+  display: block;
+  white-space: nowrap !important;
   font-weight: bold;
   font-size: 0.9rem;
-  margin-bottom: 0.2em;
-  display: inline;
-  white-space: nowrap !important;
-  overflow: visible !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.1em;
 }
 
-/* Title: wraps as needed below the time */
-.CX3 .event .title {
+/* Allow title to wrap as needed */
+.CX3 .title {
   display: block;
   font-size: 1rem;
   white-space: normal !important;
@@ -122,12 +120,13 @@
   text-align: left;
 }
 
-/* Prevent spans from forcing single-line scroll behavior */
+/* Prevent unwanted wrapping or inline span issues */
 .CX3 .event span {
-  display: inline !important;
   white-space: normal !important;
+  display: inline;
   overflow-wrap: break-word;
 }
+
 
   width: 100%;
   padding: 0;
