@@ -31,27 +31,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   white-space: normal !important;
-
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-
-  width: 100% !important;      /* ← Force full width inside its region */
-  box-sizing: border-box;      /* ← Include padding in width calc */
-  justify-content: flex-start; /* ← Align content to the left */
 }
-
-.MMM-PregnancyTracker .pregnancy-info {
-  flex: 1;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: auto;
-}
-
-
 
 
 /* Ensure the compliments region is wide and centered */
