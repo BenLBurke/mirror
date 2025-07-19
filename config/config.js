@@ -69,21 +69,30 @@ let config = {
 			}
       		},
 		{
- 			module: "MMM-CalendarExt3",
-			header: "Home Calendar",
-  			position: "upper_third",
-  			config: {
-	    			locale: "en-US",
-					title: "Burke Home Calendar",
-					mode: "week",
-					useMarquee: false,
-					instanceId: "basicCalendar",
-					maxEventLines: 5,
-					firstDayOfWeek: 0,
-					weeksInView: 2,
-					weekIndex: 0,
-    					calendarSet: ["burke_calendar","us_holiday"]
-  			}
+		  module: "MMM-CalendarExt3",
+		  header: "Home Calendar",
+		  position: "upper_third",
+		  config: {
+		    locale: "en-US",
+		    title: "Burke Home Calendar",
+		    instanceId: "basicCalendar",
+		    useMarquee: false,
+		    calendarSet: ["burke_calendar", "us_holiday"],
+		    views: [
+		      {
+		        name: "homeView",
+		        mode: "week",
+		        maxEventLines: 5,
+		        firstDayOfWeek: 0,
+		        weeksInView: 2,
+		        weekIndex: 0,
+		        customLayout: {
+		          event: "{TIME} <br><span style='font-size: 0.9em;'>{TITLE}</span>"
+		        }
+		      }
+		    ],
+		    defaultView: "homeView"
+		  }
 		},
 		{
   			module: "compliments",
@@ -98,7 +107,7 @@ let config = {
 			position: "bottom_left",
 			config: {
 				conceptionDate:"2025-04-21",
-				showDevelopmentalMilestones: false
+				showDevelopmentalMilestones: true
 				}
 		},
 		{
