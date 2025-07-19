@@ -32,16 +32,22 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   white-space: normal !important;
+
+  display: flex;           /* Make it flex container */
+  flex-direction: row;     /* Align image + info side by side */
+  gap: 10px;               /* Optional spacing between image and info */
+  align-items: flex-start; /* Align items to top */
 }
 
 .MMM-PregnancyTracker .pregnancy-info {
-  flex: 1; /* Allow it to grow */
-  width: 100%; /* Optional: reinforce full width if stacking */
+  flex: 1;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: auto; /* Reset from 100% so it respects flex: 1 */
 }
+
 
 
 /* Ensure the compliments region is wide and centered */
