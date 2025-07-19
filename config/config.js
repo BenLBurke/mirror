@@ -85,6 +85,7 @@ let config = {
 		        maxEventLines: 5,
 		        firstDayOfWeek: 0,
 		        weeksInView: 2,
+			  	slotHeight: 60,
 		        weekIndex: 0,
 		        customLayout: {
 		          event: "{TIME} <br><span style='font-size: 0.9em;'>{TITLE}</span>"
