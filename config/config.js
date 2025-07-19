@@ -53,6 +53,7 @@ let config = {
 		{
   			module: "calendar",
   			// hidden: true,
+			position: "top_left",
   			config: {
     					broadcastPastEvents: true, // <= IMPORTANT to see past events
     					calendars: [
@@ -124,6 +125,7 @@ let config = {
 		},
 		{
 			module: "weather",
+			position: "top_right",
 			// hidden: true,
 			header: "Waxhaw Forecast",
                         config: {
