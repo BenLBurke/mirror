@@ -25,7 +25,6 @@
   transform-origin: bottom left;
   font-size: 13px !important;
   line-height: 1.2;
-  max-width: 250px;
   padding: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -33,10 +32,14 @@
   word-wrap: break-word;
   white-space: normal !important;
 
-  display: flex;           /* Make it flex container */
-  flex-direction: row;     /* Align image + info side by side */
-  gap: 10px;               /* Optional spacing between image and info */
-  align-items: flex-start; /* Align items to top */
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+
+  width: 100% !important;      /* ← Force full width inside its region */
+  box-sizing: border-box;      /* ← Include padding in width calc */
+  justify-content: flex-start; /* ← Align content to the left */
 }
 
 .MMM-PregnancyTracker .pregnancy-info {
@@ -45,8 +48,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: auto; /* Reset from 100% so it respects flex: 1 */
+  width: auto;
 }
+
 
 
 
