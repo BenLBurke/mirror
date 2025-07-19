@@ -82,8 +82,8 @@
   display: none !important;
 }
 
-/* Container: Stack time and title vertically */
-.CX3 .event {
+ /* Container: Stack time and title vertically */
+/*.CX3 .event {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -125,7 +125,7 @@
   white-space: normal !important;
   display: inline;
   overflow-wrap: break-word;
-}
+} */
 
 
   width: 100%;
