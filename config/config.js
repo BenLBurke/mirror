@@ -82,7 +82,7 @@ let config = {
         keyword: "Cora",
         symbol: "wand-sparkles",
         color: "pink"
-      },
+      }]
 			}
       		},
 		// {
