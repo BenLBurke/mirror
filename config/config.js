@@ -67,6 +67,22 @@ let config = {
 								color: "#1e90ff"
 							}
 					]
+				customEvents: [
+      {
+        keyword: "Mom|Lauren",
+        symbol: "ice-cream",  // use a sunflower icon (FontAwesome or equivalent)
+        color: "yellow"
+      },
+      {
+        keyword: "Ben|Dad",
+        symbol: "person-running",
+        color: "orange"
+      },
+      {
+        keyword: "Cora",
+        symbol: "wand-sparkles",
+        color: "pink"
+      },
 			}
       		},
 		// {
