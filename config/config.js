@@ -66,7 +66,7 @@ let config = {
 								name: "burke_calendar",
 								color: "#1e90ff"
 							}
-					]
+					],
 				customEvents: [
       {
         keyword: "Mom|Lauren",
