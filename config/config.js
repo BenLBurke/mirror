@@ -71,17 +71,17 @@ let config = {
       {
         keyword: "Mom|Lauren",
         symbol: "ice-cream",  // use a sunflower icon (FontAwesome or equivalent)
-        color: "yellow"
+        color: "Yellow"
       },
       {
         keyword: "Ben|Dad",
         symbol: "person-running",
-        color: "orange"
+        color: "Orange"
       },
       {
         keyword: "Cora",
         symbol: "wand-sparkles",
-        color: "pink"
+        color: "Pink"
       }]
 			}
       		},
