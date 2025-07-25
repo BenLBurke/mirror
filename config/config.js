@@ -134,9 +134,9 @@ let config = {
 			config: {
 				opacity: 0.9,
 				animationSpeed: 500,
-				updateInterval: 5000,
-				maxHeight: "500px",
-				maxWidth:"500px",
+				updateInterval: 60000,
+				maxHeight: "50%",
+				maxWidth:"50%",
 				sequential: false  // process the image list randomly
 			}
 		},
