@@ -121,12 +121,24 @@ let config = {
 			    fadeSpeed: 1000
 			}
 		},
-		{       module:"MMM-PregnancyTracker",
+		// {       module:"MMM-PregnancyTracker",
+		// 	position: "bottom_left",
+		// 	config: {
+		// 		conceptionDate:"2025-04-21",
+		// 		showDevelopmentalMilestones: false
+		// 		}
+		// },
+		{
+			module: "MMM-ImagesPhotos",
 			position: "bottom_left",
 			config: {
-				conceptionDate:"2025-04-21",
-				showDevelopmentalMilestones: false
-				}
+				opacity: 0.9,
+				animationSpeed: 500,
+				updateInterval: 5000,
+				maxHeight: "500px",
+				maxWidth:"500px",
+				sequential: false  // process the image list randomly
+			}
 		},
 		{
 			module: "weather",
