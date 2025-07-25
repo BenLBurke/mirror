@@ -78,13 +78,13 @@
   line-height: 1.2;
 }
 
-.CX3 .cw,
+/*  .CX3 .cw,
 .CX3 .weekNumber {
   display: none !important;
 }
-
+ */
  /* Container: Stack time and title vertically */
-/*.CX3 .event {
+/* /.CX3 .event {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -97,9 +97,9 @@
   text-align: left;
   max-width: 100%;
 }
-
+ */
 /* Force time to one line with no wrap */
-.CX3 .eventTime,
+/* .CX3 .eventTime,
 .CX3 .eventTimeParts {
   display: block;
   white-space: nowrap !important;
@@ -109,9 +109,9 @@
   text-overflow: ellipsis;
   margin-bottom: 0.1em;
 }
-
+ */
 /* Allow title to wrap as needed */
-.CX3 .title {
+/* .CX3 .title {
   display: block;
   font-size: 1rem;
   white-space: normal !important;
@@ -119,18 +119,18 @@
   overflow: visible !important;
   max-width: 100%;
   text-align: left;
-}
+} */
 
 /* Prevent unwanted wrapping or inline span issues */
-.CX3 .event span {
+/* .CX3 .event span {
   white-space: normal !important;
   display: inline;
   overflow-wrap: break-word;
-} */
+} 
 
 
   width: 100%;
   padding: 0;
   margin: 0;
-}
+} */ 
 
