@@ -175,6 +175,9 @@ let config = {
 						"Haunted Mansion",
 						"TRON Lightcycle / Run",
 						"Monsters Inc. Laugh Floor",
+						"Pirates of the Caribbean",
+						"Seven Dwarfs Mine Train",
+						"Tiana's Bayou Adventure",
 						"Walt Disney's Carousel of Progress",
 						]
 				}
@@ -190,22 +193,10 @@ let config = {
 					rides: [
 						"Mickey & Minnie's Runaway Railway",
 						"Star Wars: Rise of the Resistance",
-					]
-				}
-			}
-		},
-		{
-			module: "MMM-DisneyWaitTimes",
-			header: "Animal Kingdom",
-			position: "bottom_right",
-			config: {
-				park: {
-		
-					name: "Animal Kingdom - Walt Disney World",
-					rides: [
-						"Kilimanjaro Safaris",
-						"Avatar Flight of Passage",
-						"Expedition Everest - Legend of the Forbidden Mountain",
+						"Slinky Dog Dash",
+						"The Twilight Zone Tower of Terror™",
+						"Toy Story Mania!",
+						"Alien Swirling Saucers",
 					]
 				}
 			}
