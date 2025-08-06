@@ -75,7 +75,7 @@ let config = {
       {
         keyword: "Mom|Lauren",
         symbol: "ice-cream",  // use a sunflower icon (FontAwesome or equivalent)
-        color: "gold"
+        color: "yellow"
       },
       {
         keyword: "Ben|Dad",
@@ -88,9 +88,14 @@ let config = {
         color: "hotpink"
       },
 	  {
-		keyword: "Movie",
-		symbol: "camera-movie",
-		color: "red",
+		keyword: "Church|Temple",
+		symbol: "place-of-worship",
+		color: "darkblue",
+	  },
+	  {
+		keyword: "Jack",
+		symbol: "user-ninja",
+		color: "green",
 	  },
 						
 				]
