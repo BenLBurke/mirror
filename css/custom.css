@@ -77,6 +77,17 @@
   font-size: 12px !important;
   line-height: 1.2;
 }
+.calendar .event .title {
+  color: inherit !important;
+}
+
+.calendar .event {
+  color: inherit !important;
+}
+.calendar .event .fa {
+  color: inherit !important;
+}
+
 
 /*  .CX3 .cw,
 .CX3 .weekNumber {
