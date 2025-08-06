@@ -40,25 +40,17 @@ let config = {
 	modules: [
 		{
     module: "MMM-WeatherEffects",
-    position: "fullscreen_above",
     config: {
-        enabled: true,
-        intensity: "auto",
         rainConfig: {
-            dropletCount: 50,
-            dropletSpeed: 2.0,
-            windDirection: "none"  // none, left-to-right, right-to-left
+            dropletCount: 30
         },
         snowConfig: {
-            flakeCount: 25,
-            characters: ['*', '+'],
+            flakeCount: 15,
             sparkleEnabled: false,
-            minSize: 0.8,
-            maxSize: 1.5,
-            speed: 1.0
+            maxSize: 1.2
         }
-	}
-		},
+    }
+},
 		{
 			module: "alert",
 		},
