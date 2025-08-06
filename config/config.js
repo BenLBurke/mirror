@@ -85,7 +85,7 @@ let config = {
       {
         keyword: "Cora",
         symbol: "wand-sparkles",
-        color: "hotpink"
+        color: "#FF69B4"
       },
 	  {
 		keyword: "Church|Temple",
