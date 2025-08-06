@@ -39,8 +39,25 @@ let config = {
 
 	modules: [
 		{
-			module: "MMM-WeatherEffects",
-			position: "fullscreen_above"  // This position is required
+    module: "MMM-WeatherEffects",
+    position: "fullscreen_above",
+    config: {
+        enabled: true,
+        intensity: "auto",
+        rainConfig: {
+            dropletCount: 50,
+            dropletSpeed: 2.0,
+            windDirection: "none"  // none, left-to-right, right-to-left
+        },
+        snowConfig: {
+            flakeCount: 25,
+            characters: ['*', '+'],
+            sparkleEnabled: false,
+            minSize: 0.8,
+            maxSize: 1.5,
+            speed: 1.0
+        }
+	}
 		},
 		{
 			module: "alert",
