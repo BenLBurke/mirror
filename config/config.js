@@ -39,6 +39,10 @@ let config = {
 
 	modules: [
 		{
+			module: "MMM-WeatherEffects",
+			position: "fullscreen_above"  // This position is required
+		},
+		{
 			module: "alert",
 		},
 		{
