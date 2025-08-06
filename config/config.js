@@ -86,7 +86,14 @@ let config = {
         keyword: "Cora",
         symbol: "wand-sparkles",
         color: "hotpink"
-      }]
+      },
+	  {
+		keyword: "Movie",
+		symbol: "camera-movie",
+		color: "red",
+	  },
+						
+				]
 			}
       		},
 		// {
