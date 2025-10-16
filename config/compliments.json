@@ -6,12 +6,12 @@
 	"* * 20 10 *": ["Happy Birthday Cora!"],
 	"* * 26 11 *": ["Happy Birthday Jane!"],
 	"* * 31 10 *": ["Boo!!"],
-	"* * 25 12 *": ["Merry Chirstmas\n-❤ Santa"],
+	"* * 25 12 *": ["Merry Christmas\n-❤ Santa"],
 	"* * 6 7 *": ["Happy Anniversary!"],
 
 	"anytime": [
 		"You can do all things through Christ.",
-		"Focus on the Temple",
+		"Focus on the Temple"
 	],
 	"morning": [
 	     "Good morning!",
@@ -21,7 +21,7 @@
 	"afternoon": [
 		"Change can feel a lot like being buried, but it’s also the only way we grow.",
 		"You don't have to be big to be brave.",
-		"Home isn't where you come from, it's where you find light when all grows dark.",
+		"Home isn't where you come from, it's where you find light when all grows dark."
   	],
 	"evening": [
 	    "You made it through the day.",
