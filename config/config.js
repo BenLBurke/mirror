@@ -142,7 +142,7 @@ let config = {
 			position: "middle_center",
 			config: {
 				updateInterval: 30000,
-			    remoteFile: "~/MagicMirror/config/compliments.json",
+			    remoteFile: "https://raw.githubusercontent.com/BenLBurke/mirror/refs/heads/master/config/compliments.json",
 				fadeSpeed: 1000
 			}
 		},
