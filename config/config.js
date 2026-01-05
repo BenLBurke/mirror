@@ -142,9 +142,8 @@ let config = {
 			position: "middle_center",
 			config: {
 				updateInterval: 30000,
-			    remoteFile: null,
-				compliments: require("./compliments.json"), // from config/ folder
-			    fadeSpeed: 1000
+			    remoteFile: "~/MagicMirror/config/compliments.json",
+				fadeSpeed: 1000
 			}
 		},
 		// {       module:"MMM-PregnancyTracker",
