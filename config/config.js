@@ -106,6 +106,9 @@ let config = {
 		symbol: "user-ninja",
 		color: "green",
 	  },
+	{ keyword: "Job",
+	 symbol: "hand-sparkles",
+	 color: "blue"},
 						
 				]
 			}
