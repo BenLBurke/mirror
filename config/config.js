@@ -8,6 +8,8 @@
  * which will be converted to `config.js` while starting. For more information
  * see https://docs.magicmirror.builders/configuration/introduction.html#enviromnent-variables
  */
+
+// const localCompliments = require("./compliments.json")
 let config = {
 	address: "localhost",	// Address to listen on, can be:
 							// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
@@ -145,7 +147,62 @@ let config = {
 			position: "middle_center",
 			config: {
 				updateInterval: 30000,
-			    remoteFile: "https://raw.githubusercontent.com/BenLBurke/mirror/refs/heads/master/config/compliments.json",
+			    compliments: {
+								"* * 10 1 *": ["Happy Birthday Jack!"],
+								"* * 29 1 *": ["Happy Birthday Dad!"],
+								"* * 4 3 *": ["Happy Birthday Cole!"],
+								"* * 8 5 *": ["Happy Birthday Mommy!"],
+								"* * 20 10 *": ["Happy Birthday Cora!"],
+								"* * 26 11 *": ["Happy Birthday Jane!"],
+								"* * 31 10 *": ["Boo!!"],
+								"* * 25 12 *": ["Merry Christmas\n-❤ Santa"],
+								"* * 6 7 *": ["Happy Anniversary!"],
+
+								"anytime": [
+									"You can do all things through Christ.",
+									"Focus on the Temple"
+								],
+								"morning": [
+									"Good morning!",
+									"You look rested!",
+									"Today is full of possibilities."
+								],
+								"afternoon": [
+									"Change can feel a lot like being buried, but it’s also the only way we grow.",
+									"You don't have to be big to be brave.",
+									"Home isn't where you come from, it's where you find light when all grows dark."
+								],
+								"evening": [
+									"You made it through the day.",
+									"Time to relax.",
+									"You deserve some rest."
+								],
+								"weather:clear": [
+									"What a beautiful day!",
+									"Don't forget your sunglasses!",
+									"Soak up that sun!"
+								],
+								"weather:rain": [
+									"Stay dry out there!",
+									"Perfect weather for a warm drink.",
+									"Rainy days are good for reflection."
+								],
+								"weather:snow": [
+									"It's a winter wonderland!",
+									"Hope you're bundled up!",
+									"Snowball fight, anyone?"
+								],
+								"weather:cloudy": [
+									"The clouds can't hide your shine.",
+									"A calm, cloudy day.",
+									"Great weather for thinking deep thoughts."
+								],
+								"weather:thunderstorm": [
+									"Hope you're safe and cozy!",
+									"Let the thunder roll — you've got this.",
+									"Maybe light a candle and chill?"
+								]
+							},
 				fadeSpeed: 1000
 			}
 		},
