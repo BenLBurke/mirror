@@ -264,6 +264,8 @@ let config = {
 						"Seven Dwarfs Mine Train",
 						"Tiana's Bayou Adventure",
 						"Walt Disney's Carousel of Progress",
+						"Space Mountain",
+						"Tomorrowland Transit Authority PeopleMover",
 						]
 				}
 			}
@@ -281,7 +283,6 @@ let config = {
 						"Slinky Dog Dash",
 						"The Twilight Zone Tower of Terror™",
 						"Toy Story Mania!",
-						"Alien Swirling Saucers",
 					]
 				}
 			}
