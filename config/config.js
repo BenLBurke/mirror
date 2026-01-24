@@ -148,15 +148,16 @@ let config = {
 			config: {
 				updateInterval: 30000,
 			    compliments: {
-								"* * 10 1 *": ["Happy Birthday Jack!"],
-								"* * 29 1 *": ["Happy Birthday Dad!"],
-								"* * 4 3 *": ["Happy Birthday Cole!"],
-								"* * 8 5 *": ["Happy Birthday Mommy!"],
+								"* * 10 1  *": ["Happy Birthday Jack!"],
+								"* * 29 1  *": ["Happy Birthday Dad!"],
+								"* * 4  3   *": ["Happy Birthday Cole!"],
+								"* * 8  5   *": ["Happy Birthday Mommy!"],
 								"* * 20 10 *": ["Happy Birthday Cora!"],
 								"* * 26 11 *": ["Happy Birthday Jane!"],
+								"* * 8  1  *": ["Happy Birthday Bret"],
 								"* * 31 10 *": ["Boo!!"],
 								"* * 25 12 *": ["Merry Christmas\n-❤ Santa"],
-								"* * 6 7 *": ["Happy Anniversary!"],
+								"* * 6  7  *": ["Happy Anniversary!"],
 
 								"anytime": [
 									"You can do all things through Christ.",
@@ -168,9 +169,13 @@ let config = {
 									"Today is full of possibilities."
 								],
 								"afternoon": [
-									"Change can feel a lot like being buried, but it’s also the only way we grow.",
+									"You must be the change you wish to see in the world.",
 									"You don't have to be big to be brave.",
-									"Home isn't where you come from, it's where you find light when all grows dark."
+									"The happiness of your life depends upon the quality of your thoughts.",
+									"The more that you read, the more things you will know. The more that you learn, the more places you'll go.",
+									"Be yourself; everyone else is already taken.",
+									"Kindness is the language which the deaf can hear and the blind can see.",
+									"Nothing worthwhile is ever easy, but it's always worthwhile."
 								],
 								"evening": [
 									"You made it through the day.",
