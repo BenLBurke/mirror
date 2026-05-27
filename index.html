@@ -598,7 +598,7 @@
 const REPO_OWNER = 'BenLBurke';
 const REPO_NAME  = 'mirror';
 const BRANCH     = 'master';
-const PHOTOS_DIR = 'Photos';
+const PHOTOS_DIR = 'Photos';s
 const COMPLIMENTS_FILE = 'compliments.json';
 const COMPLIMENTS_BRANCH = 'main'; // your compliments.json is on main
 
@@ -689,7 +689,7 @@ async function loadPhotos() {
     const files = await res.json();
     photosData = files
       .filter(f => f.type === 'file' && /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(f.name))
-      .map(f => ({ name: f.name, sha: f.sha, downloadUrl: f.download_url }));
+      .map(f => ({ name: f.name, sha: f.sha, apiUrl: f.url }));
     renderPhotos();
   } catch(e) {
     grid.innerHTML = `<div class="empty-state"><p>${e.message}</p></div>`;
@@ -708,13 +708,35 @@ function renderPhotos() {
 
   grid.innerHTML = photosData.map((p, i) => `
     <div class="photo-card" id="photo-card-${i}">
-      <img src="${p.downloadUrl}" alt="${p.name}" loading="lazy" onclick="openLightbox('${p.downloadUrl}')">
+      <img src="" alt="${p.name}" loading="lazy" 
+           onclick="openLightbox(${i})"
+           data-index="${i}">
       <div class="photo-overlay">
         <div class="photo-name">${p.name}</div>
         <button class="btn btn-danger" onclick="event.stopPropagation(); deletePhoto(${i})">Delete</button>
       </div>
     </div>
   `).join('');
+
+  // Load images via API (handles private repos)
+  photosData.forEach((p, i) => loadPhotoBlob(i));
+}
+
+async function loadPhotoBlob(index) {
+  const photo = photosData[index];
+  try {
+    const res = await ghFetch(photo.apiUrl, {
+      headers: { 'Accept': 'application/vnd.github.raw+json' }
+    });
+    if (!res.ok) return;
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    photo.blobUrl = url;
+    const img = document.querySelector(`#photo-card-${index} img`);
+    if (img) img.src = url;
+  } catch(e) {
+    console.warn('Could not load photo:', photo.name, e);
+  }
 }
 
 async function handleFileSelect(event) {
@@ -825,7 +847,9 @@ function fileToBase64(file) {
 // ════════════════════════════════════════════════
 // LIGHTBOX
 // ════════════════════════════════════════════════
-function openLightbox(url) {
+function openLightbox(index) {
+  const photo = photosData[index];
+  const url = photo.blobUrl || '';
   document.getElementById('lightbox-img').src = url;
   document.getElementById('lightbox').classList.add('open');
 }
