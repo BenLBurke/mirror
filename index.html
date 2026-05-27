@@ -29,54 +29,6 @@
     min-height: 100vh;
   }
 
-  /* ── AUTH SCREEN ─────────────────────────────── */
-  #auth-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 2rem;
-    background: radial-gradient(ellipse at 50% 30%, #1e1a14 0%, #0f0e0d 70%);
-  }
-
-  .auth-card {
-    width: 100%;
-    max-width: 420px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 3rem 2.5rem;
-    background: var(--surface);
-  }
-
-  .mirror-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    text-align: center;
-    margin-bottom: 0.3rem;
-  }
-
-  .mirror-sub {
-    font-size: 0.78rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
-
-  .field-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
   input[type="text"], input[type="password"], input[type="url"], textarea, select {
     width: 100%;
     background: var(--bg);
@@ -115,8 +67,6 @@
   .btn-primary {
     background: var(--accent);
     color: #0f0e0d;
-    width: 100%;
-    margin-top: 1.5rem;
   }
   .btn-primary:hover { background: #d4b87a; }
   .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
@@ -574,34 +524,12 @@
 </head>
 <body>
 
-<!-- ═══ AUTH SCREEN ═══════════════════════════════════ -->
-<div id="auth-screen">
-  <div class="auth-card">
-    <div class="mirror-title">Mirror</div>
-    <div class="mirror-sub">Home Dashboard</div>
-
-    <label class="field-label" for="token-input">GitHub Personal Access Token</label>
-    <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
-
-    <div id="auth-error" class="error-msg"></div>
-
-    <button class="btn btn-primary" id="login-btn" onclick="handleLogin()">
-      Enter
-    </button>
-
-    <p class="auth-hint">
-      Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=Mirror+Dashboard" target="_blank">Create one here</a> with <strong>repo</strong> scope. Your token stays in this browser session only and is never stored.
-    </p>
-  </div>
-</div>
-
 <!-- ═══ APP ═══════════════════════════════════════════ -->
 <div id="app">
   <header>
     <div class="header-title">✦ Mirror</div>
     <div class="header-right">
       <span class="user-badge" id="user-badge"></span>
-      <button class="btn btn-ghost" onclick="logout()">Sign out</button>
     </div>
   </header>
 
@@ -677,72 +605,18 @@ const COMPLIMENTS_BRANCH = 'main'; // your compliments.json is on main
 // ════════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════════
-let TOKEN = '';
-let currentUser = '';
+const TOKEN = 'MIRROR_TOKEN_PLACEHOLDER'; // injected by build.sh
 let photosData = []; // [{name, sha, downloadUrl}]
 let phrasesData = {}; // parsed compliments object
 let phrasesSha = '';   // sha for committing
 let phrasesModified = false;
 
 // ════════════════════════════════════════════════
-// AUTH
+// INIT
 // ════════════════════════════════════════════════
-async function handleLogin() {
-  const tokenInput = document.getElementById('token-input');
-  const errEl = document.getElementById('auth-error');
-  const btn = document.getElementById('login-btn');
-
-  TOKEN = tokenInput.value.trim();
-  if (!TOKEN) return;
-
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner"></div>';
-  errEl.style.display = 'none';
-
-  try {
-    const res = await ghFetch('https://api.github.com/user');
-    if (!res.ok) throw new Error('Invalid token or no access.');
-    const user = await res.json();
-    currentUser = user.login;
-    sessionStorage.setItem('mirror_token', TOKEN);
-    showApp();
-  } catch(e) {
-    errEl.textContent = e.message || 'Could not authenticate. Check your token.';
-    errEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Enter';
-  }
-}
-
-function logout() {
-  sessionStorage.removeItem('mirror_token');
-  TOKEN = '';
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('auth-screen').style.display = 'flex';
-  document.getElementById('token-input').value = '';
-}
-
-function showApp() {
-  document.getElementById('auth-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  document.getElementById('user-badge').textContent = currentUser;
+window.addEventListener('DOMContentLoaded', () => {
   loadPhotos();
   loadPhrases();
-}
-
-// Check session on load
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = sessionStorage.getItem('mirror_token');
-  if (saved) {
-    TOKEN = saved;
-    ghFetch('https://api.github.com/user').then(async r => {
-      if (r.ok) {
-        const u = await r.json();
-        currentUser = u.login;
-        showApp();
-      }
-    }).catch(() => {});
-  }
 
   // Drag & drop
   const zone = document.getElementById('upload-zone');
@@ -763,11 +637,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // ESC closes lightbox
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeLightbox();
-  });
-
-  // Enter key on token input
-  document.getElementById('token-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleLogin();
   });
 });
 
