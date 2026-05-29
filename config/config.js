@@ -56,6 +56,7 @@ let config = {
 },
 		{
 			module: "alert",
+			position: "top_bar"
 		},
 		{
 			module: "updatenotification",
