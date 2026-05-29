@@ -62,7 +62,7 @@ function checkConfigFile () {
 
 	if (errors.length === 0) {
 		Log.info(styleText("green", "Your configuration file doesn't contain syntax errors :)"));
-		validateModulePositions(configFileName);
+		// validateModulePositions(configFileName);
 	} else {
 		let errorMessage = "Your configuration file contains syntax errors :(";
 
