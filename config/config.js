@@ -42,6 +42,7 @@ let config = {
 	modules: [
 		{
     module: "MMM-WeatherEffects",
+			position: "fullscreen_above",
     config: {
         rainConfig: {
             dropletCount: 30
