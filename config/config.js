@@ -56,10 +56,12 @@ let config = {
 },
 		{
 			module: "alert",
+			disabled: true,
 			position: "top_bar"
 		},
 		{
 			module: "updatenotification",
+			disable: true,
 			position: "top_bar"
 		},
 		{
