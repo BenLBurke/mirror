@@ -262,6 +262,7 @@ let config = {
 			header: "Magic Kingdom",
 			position: "bottom_right",
 			config: {
+				futureHours: false,
 				park: {
 					entity: "75ea578a-adc8-4116-a54d-dccb60765ef9", // Magic Kingdom Park
 					rides: [
@@ -284,6 +285,7 @@ let config = {
 			header: "Hollywood Studios",
 			position: "bottom_right",
 			config: {
+				futureHours: false,
 				park: {
 					entity: "288747d1-8b4f-4a64-867e-ea7c9b27bad8", // Disney's Hollywood Studios
 					rides: [
