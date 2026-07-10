@@ -75,6 +75,8 @@ let config = {
 			position: "top_left",
   			config: {
     					broadcastPastEvents: true, // <= IMPORTANT to see past events
+    					coloredText: true,
+    					coloredSymbol: true,
     					calendars: [
       							{
         							url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics",
@@ -257,41 +259,43 @@ let config = {
 				lon: -80.6708347
 			}
 		},
-		{ 	
-			module: "MMM-DisneyWaitTimes",
+		{
+			module: "MMM-ThemeParkWaitTimes",
 			header: "Magic Kingdom",
 			position: "bottom_right",
-			config: { 
+			config: {
+				futureHours: false,
 				park: {
-					name: "Magic Kingdom - Walt Disney World",
+					entity: "75ea578a-adc8-4116-a54d-dccb60765ef9", // Magic Kingdom Park
 					rides: [
-						"Jungle Cruise",
-						"Haunted Mansion",
-						"TRON Lightcycle / Run",
-						"Monsters Inc. Laugh Floor",
-						"Pirates of the Caribbean",
-						"Seven Dwarfs Mine Train",
-						"Tiana's Bayou Adventure",
-						"Walt Disney's Carousel of Progress",
-						"Space Mountain",
-						"Tomorrowland Transit Authority PeopleMover",
+						"796b0a25-c51e-456e-9bb8-50a324e301b3", // Jungle Cruise
+						"2551a77d-023f-4ab1-9a19-8afec0190f39", // Haunted Mansion
+						"5a43d1a7-ad53-4d25-abfe-25625f0da304", // TRON Lightcycle / Run
+						"e8f0b426-7645-4ea3-8b41-b94ae7091a41", // Monsters, Inc. Laugh Floor
+						"352feb94-e52e-45eb-9c92-e4b44c6b1a9d", // Pirates of the Caribbean
+						"9d4d5229-7142-44b6-b4fb-528920969a2c", // Seven Dwarfs Mine Train
+						"73cb9445-0695-47a3-87ce-d08ae36b5f3c", // Tiana's Bayou Adventure
+						"8183f3f2-1b59-4b9c-b634-6a863bdf8d84", // Walt Disney's Carousel of Progress
+						"b2260923-9315-40fd-9c6b-44dd811dbe64", // Space Mountain
+						"ffcfeaa2-1416-4920-a1ed-543c1a1695c4", // Tomorrowland Transit Authority PeopleMover
 						]
 				}
 			}
 		},
-		{	
-			module: "MMM-DisneyWaitTimes",
+		{
+			module: "MMM-ThemeParkWaitTimes",
 			header: "Hollywood Studios",
 			position: "bottom_right",
 			config: {
+				futureHours: false,
 				park: {
-					name: "Hollywood Studios - Walt Disney World",
+					entity: "288747d1-8b4f-4a64-867e-ea7c9b27bad8", // Disney's Hollywood Studios
 					rides: [
-						"Mickey & Minnie's Runaway Railway",
-						"Star Wars: Rise of the Resistance",
-						"Slinky Dog Dash",
-						"The Twilight Zone Tower of Terror™",
-						"Toy Story Mania!",
+						"6e118e37-5002-408d-9d88-0b5d9cdb5d14", // Mickey & Minnie's Runaway Railway
+						"1a2e70d9-50d5-4140-b69e-799e950f7d18", // Star Wars: Rise of the Resistance
+						"399aa0a1-98e2-4d2b-b297-2b451e9665e1", // Slinky Dog Dash
+						"6f6998e8-a629-412c-b964-2cb06af8e26b", // The Twilight Zone Tower of Terror
+						"20b5daa8-e1ea-436f-830c-2d7d18d929b5", // Toy Story Mania!
 					]
 				}
 			}
