@@ -75,6 +75,8 @@ let config = {
 			position: "top_left",
   			config: {
     					broadcastPastEvents: true, // <= IMPORTANT to see past events
+    					coloredText: true,
+    					coloredSymbol: true,
     					calendars: [
       							{
         							url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics",
