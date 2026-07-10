@@ -327,6 +327,11 @@ Module.register("calendar", {
 			}
 
 			const titleWrapper = document.createElement("td");
+
+			if (this.config.coloredText) {
+				titleWrapper.style.cssText = `color:${this.colorForUrl(event.url, false)}`;
+			}
+
 			let repeatingCountTitle = "";
 
 			if (this.config.displayRepeatingCountTitle && event.firstYear !== undefined) {
