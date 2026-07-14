@@ -114,6 +114,16 @@ let config = {
 		symbol: "user-ninja",
 		color: "green",
 	  },
+	{
+		keyword: "Jane",
+		symbol: "fort-awesome",
+		color: "pink"
+	},
+	{
+		keyword: "Cole",
+		symbol: "space-awesome",
+		color: "orange"
+	},				
 	{ keyword: "Job",
 	 symbol: "hand-sparkles",
 	 color: "blue"},
@@ -275,7 +285,8 @@ let config = {
 						"352feb94-e52e-45eb-9c92-e4b44c6b1a9d", // Pirates of the Caribbean
 						"9d4d5229-7142-44b6-b4fb-528920969a2c", // Seven Dwarfs Mine Train
 						"73cb9445-0695-47a3-87ce-d08ae36b5f3c", // Tiana's Bayou Adventure
-						"8183f3f2-1b59-4b9c-b634-6a863bdf8d84", // Walt Disney's Carousel of Progress
+						// "8183f3f2-1b59-4b9c-b634-6a863bdf8d84", // Walt Disney's Carousel of Progress
+						"72c7343a-f7fb-4f66-95df-c91016de7338", // Buzz Lightyear’s Space Ranger Spin
 						"b2260923-9315-40fd-9c6b-44dd811dbe64", // Space Mountain
 						"ffcfeaa2-1416-4920-a1ed-543c1a1695c4", // Tomorrowland Transit Authority PeopleMover
 						]
