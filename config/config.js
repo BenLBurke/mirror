@@ -97,7 +97,7 @@ let config = {
       {
         keyword: "Ben|Dad",
         symbol: "person-running",
-        color: "orange"
+        color: "#3BEBE5"
       },
       {
         keyword: "Cora",
@@ -112,7 +112,7 @@ let config = {
 	  {
 		keyword: "Jack",
 		symbol: "user-ninja",
-		color: "green",
+		color: "#F03535",
 	  },
 	{
 		keyword: "Jane",
@@ -122,7 +122,7 @@ let config = {
 	{
 		keyword: "Cole",
 		symbol: "space-awesome",
-		color: "orange"
+		color: "green"
 	},				
 	{ keyword: "Job",
 	 symbol: "hand-sparkles",
