@@ -126,7 +126,7 @@ let config = {
 	},				
 	{ keyword: "Job",
 	 symbol: "hand-sparkles",
-	 color: "blue"},
+	 color: "#EBE6E6"},
 						
 				]
 			}
