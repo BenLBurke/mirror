@@ -1,5 +1,6 @@
 <title>Mirror Photos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
 <style>
   :root {
     color-scheme: dark;
@@ -193,6 +194,50 @@
     margin-right: 6px;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
+
+  .gate {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+  }
+  .gate-box {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+  .gate-box h2 {
+    margin: 0 0 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  #pinInput {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1.6rem;
+    letter-spacing: 0.6em;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  #pinInput:focus { outline: 2px solid var(--accent); }
+  #pinSubmit {
+    width: 100%;
+  }
+  .pin-error {
+    color: var(--danger);
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    margin-top: 10px;
+  }
 </style>
 
 <header>
@@ -202,7 +247,16 @@
 
 <div id="banner"></div>
 
-<main>
+<div id="gate" class="gate" style="display:none;">
+  <div class="gate-box">
+    <h2>Enter the family passcode</h2>
+    <input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" placeholder="••••" />
+    <button id="pinSubmit" class="add-btn" type="button">Unlock</button>
+    <div id="pinError" class="pin-error"></div>
+  </div>
+</div>
+
+<main style="display:none;">
   <div class="add-row">
     <label class="add-btn" for="fileInput">+ Add Photos</label>
     <input id="fileInput" type="file" accept="image/*" multiple />
@@ -212,7 +266,7 @@
   <div id="emptyMsg" class="empty" style="display:none;">No photos yet. Tap "Add Photos" to upload some.</div>
 </main>
 
-<div class="savebar">
+<div class="savebar" style="display:none;">
   <div id="status" class="status"></div>
   <button id="saveBtn" class="save-btn" disabled>Save Changes</button>
 </div>
@@ -226,7 +280,8 @@
     repo: "mirror",
     branch: "master",
     dir: "Photos",
-    token: "MIRROR_TOKEN_PLACEHOLDER"
+    token: "MIRROR_TOKEN_PLACEHOLDER",
+    pinHash: "MIRROR_PIN_HASH_PLACEHOLDER"
   };
 
   var IMAGE_EXT = /\.(jpe?g|png|gif|webp)$/i;
@@ -576,11 +631,64 @@
     });
   });
 
-  var tokenLooksReal = /^(ghp_|gho_|ghu_|ghs_|ghr_|github_pat_)[A-Za-z0-9_]+$/.test(CONFIG.token);
-  if (!tokenLooksReal) {
-    showBanner("This page hasn't been built yet — deploy it through build.sh with GITHUB_TOKEN set so it can talk to GitHub.", "warn");
-  } else {
+  function sha256Hex(str) {
+    var enc = new TextEncoder().encode(str);
+    return crypto.subtle.digest("SHA-256", enc).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+        return b.toString(16).padStart(2, "0");
+      }).join("");
+    });
+  }
+
+  var mainEl = document.querySelector("main");
+  var savebarEl = document.querySelector(".savebar");
+  var gateEl = document.getElementById("gate");
+  var pinInput = document.getElementById("pinInput");
+  var pinSubmit = document.getElementById("pinSubmit");
+  var pinError = document.getElementById("pinError");
+
+  function startApp() {
+    gateEl.style.display = "none";
+    mainEl.style.display = "";
+    savebarEl.style.display = "";
     loadExisting();
+  }
+
+  function tryUnlock() {
+    var value = pinInput.value.trim();
+    if (!value) return;
+    sha256Hex(value).then(function (hex) {
+      if (hex === CONFIG.pinHash.toLowerCase()) {
+        try { sessionStorage.setItem("mirrorUnlocked", "1"); } catch (e) {}
+        pinError.textContent = "";
+        startApp();
+      } else {
+        pinError.textContent = "That's not it — try again.";
+        pinInput.value = "";
+        pinInput.focus();
+      }
+    });
+  }
+
+  pinSubmit.addEventListener("click", tryUnlock);
+  pinInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") tryUnlock();
+  });
+
+  var tokenLooksReal = /^(ghp_|gho_|ghu_|ghs_|ghr_|github_pat_)[A-Za-z0-9_]+$/.test(CONFIG.token);
+  var pinHashLooksReal = /^[a-f0-9]{64}$/i.test(CONFIG.pinHash);
+
+  if (!tokenLooksReal || !pinHashLooksReal) {
+    showBanner("This page hasn't been built yet — deploy it through build.sh with GITHUB_TOKEN and MIRROR_PIN set so it can talk to GitHub.", "warn");
+  } else {
+    var alreadyUnlocked = false;
+    try { alreadyUnlocked = sessionStorage.getItem("mirrorUnlocked") === "1"; } catch (e) {}
+    if (alreadyUnlocked) {
+      startApp();
+    } else {
+      gateEl.style.display = "flex";
+      pinInput.focus();
+    }
   }
 })();
 </script>

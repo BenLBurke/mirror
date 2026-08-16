@@ -5,13 +5,16 @@ install (see the `master` branch), whose only job is to let family members
 add or remove the photos shown on the mirror without touching Git or GitHub
 directly.
 
-- `index.html` — the uploader page. Lists the photos currently in
-  `Photos/` on the `master` branch, lets you pick new photos or mark old
-  ones for removal, and on "Save Changes" commits those adds/deletes
-  straight to `master` via the GitHub API.
+- `index.html` — the uploader page. Sits behind a 4-digit family passcode,
+  then lists the photos currently in `Photos/` on the `master` branch, lets
+  you pick new photos or mark old ones for removal, and on "Save Changes"
+  commits those adds/deletes straight to `master` via the GitHub API.
 - `build.sh` — at deploy time, replaces the `MIRROR_TOKEN_PLACEHOLDER`
   string in `index.html` with a real GitHub token (from the `GITHUB_TOKEN`
-  environment variable) and writes the result to `dist/index.html`.
+  environment variable), replaces `MIRROR_PIN_HASH_PLACEHOLDER` with a
+  SHA-256 hash of the passcode (from `MIRROR_PIN` — the raw PIN itself
+  never ends up in the built file), and writes the result to
+  `dist/index.html`.
 
 ## How the photos get to the mirror
 
@@ -31,30 +34,40 @@ device will pick up the changes the same way it always has.
 2. In Render, create a **Static Site** pointed at this branch of the repo.
    - Build command: `bash build.sh`
    - Publish directory: `dist`
-   - Environment variable: `GITHUB_TOKEN` = the token from step 1.
-3. Deploy. Share the resulting Render URL with your family — that's the
-   whole login they need.
+   - Environment variables:
+     - `GITHUB_TOKEN` = the token from step 1.
+     - `MIRROR_PIN` = a 4-digit passcode your family will type to unlock
+       the page (e.g. `4821`). Change this anytime by editing the env var
+       and letting Render redeploy — no code change needed.
+   - Give the service a name that doesn't advertise what it is (avoid
+     "photos"/"mirror" in the slug) — the URL is the only real access
+     control besides the PIN, so an unguessable one adds a layer.
+3. Deploy. Share the resulting Render URL and the PIN with your family —
+   that's the whole login they need.
 
 ## Security notes
 
-- The token is baked into the built `index.html` and is visible to anyone
-  who loads the page (view source / network tab). Treat the URL like a
-  house key: only share it with people you trust, and don't post it
-  publicly.
+- The token and PIN hash are baked into the built `index.html` and the
+  token is visible to anyone who loads the page (view source / network
+  tab). The PIN gate and unguessable URL are deterrents, not real
+  security — a technically inclined visitor could still find the token.
+  Treat the URL like a house key: only share it with people you trust.
+- The page also sends `noindex, nofollow` so it won't show up in search
+  results.
 - If you ever suspect the token leaked, revoke it in GitHub settings and
   issue a new one — since it's scoped to just this repo's contents, the
   blast radius is limited to the mirror's photos.
-- `dist/` is git-ignored so a locally built copy with a real token
+- `dist/` is git-ignored so a locally built copy with real secrets
   injected never accidentally gets committed.
 
 ## Local testing
 
-`build.sh` requires `GITHUB_TOKEN` to be set, since `index.html` is not
-usable until the placeholder is replaced:
+`build.sh` requires `GITHUB_TOKEN` and `MIRROR_PIN` to be set, since
+`index.html` is not usable until both placeholders are replaced:
 
 ```sh
-GITHUB_TOKEN=ghp_your_token_here bash build.sh
+GITHUB_TOKEN=ghp_your_token_here MIRROR_PIN=1234 bash build.sh
 python3 -m http.server -d dist 8000
 ```
 
-Then open http://localhost:8000.
+Then open http://localhost:8000 and enter `1234`.
