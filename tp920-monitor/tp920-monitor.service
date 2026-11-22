@@ -1,0 +1,18 @@
+# systemd unit for the TP920 monitor.
+# Edit User= and the paths if your username or folder differ, then see README.
+[Unit]
+Description=ThermoPro TP920 BLE monitor (ntfy alerts)
+After=bluetooth.target network-online.target
+Wants=bluetooth.target network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/tp920-monitor
+EnvironmentFile=/home/pi/tp920-monitor/tp920.env
+ExecStart=/home/pi/tp920-monitor/.venv/bin/python -u tp920_monitor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

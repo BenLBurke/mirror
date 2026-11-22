@@ -1,0 +1,4 @@
+tp920.env
+*.csv
+.venv/
+__pycache__/
