@@ -1,6 +1,6 @@
 # ThermoPro TP920 Bluetooth Monitor
 
-A Raspberry Pi (or any Linux box with BlueZ) sits near the smoker, connects to
+A laptop (macOS, Windows or Linux) or a Raspberry Pi sits near the smoker, connects to
 the TP920 over Bluetooth LE, logs the breast probe to CSV, and pushes alerts
 to your phone through [ntfy.sh](https://ntfy.sh) over Wi-Fi.
 
@@ -15,7 +15,46 @@ to your phone through [ntfy.sh](https://ntfy.sh) over Wi-Fi.
 | `tp920.env.example` | Every setting, with defaults. Copy it to `tp920.env` |
 | `tp920-monitor.service` | systemd unit so the monitor starts on boot |
 
-## 1. Set up the Pi
+## 1a. Set up a laptop (macOS / Windows / Linux)
+
+The laptop stays home within Bluetooth range of the smoker (about 10 m, and
+fewer walls is better) and on your Wi-Fi. You can be anywhere with your phone.
+
+**Install** Python 3.9 or newer from python.org (or Homebrew on a Mac), then in
+this folder:
+
+```bash
+# macOS / Linux
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+
+# Windows (PowerShell)
+py -m venv .venv
+.venv\Scripts\pip install -r requirements.txt
+```
+
+In the commands below, use `.venv\Scripts\python` on Windows wherever this
+README says `.venv/bin/python`.
+
+**Keeping it awake matters most.** A sleeping laptop drops Bluetooth and Wi-Fi,
+so you'd get no readings and no alerts. While running, the monitor blocks
+idle sleep itself: `caffeinate` on macOS, `SetThreadExecutionState` on Windows,
+`systemd-inhibit` on Linux. Turn this off with `--allow-sleep`. It can't stop
+**lid-close** sleep, so:
+
+* Keep the lid **open** and the laptop **plugged in**. You can turn the screen
+  brightness all the way down.
+* Windows: Settings → System → Power → set "When I close the lid" to *Do nothing* if you
+  want to close it.
+* macOS: grant Bluetooth access the first time. Allow your terminal app in
+  System Settings → Privacy & Security → Bluetooth.
+* macOS shows a UUID instead of a MAC address. If you set `TP920_ADDRESS`, use
+  the value `discover.py` prints.
+
+Skip the systemd section (step 6). On a laptop, just leave the terminal
+window running during the cook.
+
+## 1b. Or set up a Raspberry Pi
 
 Any Pi with built-in Bluetooth works (3B+, 4, 5, Zero 2 W). These steps assume
 Raspberry Pi OS Bookworm and the user `pi`.
@@ -126,7 +165,7 @@ All the numbers above are set in `tp920.env` (see `tp920.env.example`) or
 through environment variables. Priorities and the protocol constants are at the
 top of `tp920_monitor.py`.
 
-## 6. Start on boot with systemd
+## 6. (Pi / always-on Linux only) Start on boot with systemd
 
 ```bash
 # Edit User= and the paths in the unit if you're not user "pi" in ~/tp920-monitor

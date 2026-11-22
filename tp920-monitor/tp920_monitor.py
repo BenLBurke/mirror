@@ -2,7 +2,7 @@
 """
 ThermoPro TP920 Bluetooth monitor -> ntfy.sh push alerts.
 
-Connects to a TP920 over BLE (GATT), reads probe temperatures, logs a CSV row
+Runs on a laptop (macOS, Windows, Linux) or a Raspberry Pi. Connects to a TP920 over BLE (GATT), reads probe temperatures, logs a CSV row
 every minute, and pushes alerts to your phone through ntfy.sh.
 
     python3 tp920_monitor.py                      # real thermometer
@@ -27,6 +27,8 @@ import logging
 import math
 import os
 import random
+import shutil
+import subprocess
 import sys
 import time
 import urllib.error
@@ -590,6 +592,42 @@ async def alert_engine(cfg: Config, state: State, clock: Clock, notifier: Notifi
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+def _started_ok(proc: subprocess.Popen, name: str) -> None:
+    time.sleep(1.0)  # give the helper a moment to fail if it's going to
+    if proc.poll() is None:
+        log.info("sleep blocked with %s (keep the lid open and the charger in)", name)
+    else:
+        log.warning("%s failed; disable sleep in your power settings instead", name)
+
+
+def keep_awake() -> None:
+    """Stop the computer from sleeping while the monitor runs (laptops!).
+
+    A sleeping laptop drops Bluetooth and Wi-Fi, so you'd get no readings and
+    no alerts. The block ends when this script exits. Closing the lid can
+    still force sleep on most laptops, so keep it open and plugged in.
+    """
+    try:
+        if sys.platform == "darwin":
+            # caffeinate exits by itself when our PID exits.
+            _started_ok(subprocess.Popen(["caffeinate", "-i", "-w", str(os.getpid())]), "caffeinate")
+        elif sys.platform.startswith("win"):
+            import ctypes
+            ES_CONTINUOUS, ES_SYSTEM_REQUIRED = 0x80000000, 0x00000001
+            ctypes.windll.kernel32.SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED)
+            log.info("sleep blocked via SetThreadExecutionState (keep the lid open)")
+        elif shutil.which("systemd-inhibit"):
+            # The inhibitor holds until `tail` sees our PID exit.
+            _started_ok(subprocess.Popen(
+                ["systemd-inhibit", "--what=sleep:idle", "--who=tp920-monitor",
+                 "--why=Monitoring smoker", "tail", f"--pid={os.getpid()}", "-f", "/dev/null"],
+                stderr=subprocess.DEVNULL), "systemd-inhibit")
+        else:
+            log.warning("can't block sleep on this system; disable sleep in power settings")
+    except Exception as e:
+        log.warning("could not block sleep (%s); disable sleep in power settings", e)
+
+
 async def supervise(name: str, fn: Callable, *args) -> None:
     """Run a task forever; if it crashes, log the traceback and restart it."""
     while True:
@@ -622,6 +660,8 @@ def main() -> None:
     ap.add_argument("--speed", type=float, default=60.0,
                     help="dry-run time multiplier (default 60: one simulated minute per second)")
     ap.add_argument("--no-notify", action="store_true", help="log alerts instead of sending them")
+    ap.add_argument("--allow-sleep", action="store_true",
+                    help="don't block system sleep (by default the monitor keeps the computer awake)")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args()
 
@@ -640,6 +680,8 @@ def main() -> None:
             import bleak  # noqa: F401
         except ImportError:
             sys.exit("bleak is not installed. Run: pip install bleak")
+        if not args.allow_sleep:
+            keep_awake()
 
     try:
         asyncio.run(run(cfg, args.dry_run, args.speed, not args.no_notify))
